@@ -1,13 +1,12 @@
 #include "animator.h"
 
 void		sphere_translate(
-	t_vec4 *trans_vec,
-	t_camera *cam,
+	t_mat4 *mat, // this mat has to be translate * cam_mat
 	char *objects_buf
 )
 {
 	t_sphere		*sphere;
 
 	sphere = (t_sphere *)objects_buf;
-	sphere->c = vec_plus_vec(&(sphere->c), &trans_vec);
+	sphere->c = mat_mul_vec(mat, &(sphere->c));
 }

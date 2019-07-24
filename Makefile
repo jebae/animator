@@ -39,14 +39,22 @@ INCLUDES = -I ./$(INCDIR)\
 	-I $(RT_PATH)/includes\
 
 # srcs
+SRC_OBJECT = cone.c\
+	plane.c\
+	sphere.c\
+	cylinder.c\
+	triangle.c\
 
 # objs
+OBJS = $(addprefix $(OBJDIR)/, $(SRC_OBJECT:.c=.o))
 
 # compile objs
 HEADERS = $(INCDIR)/animator.h\
 	$(LIBFT_PATH)/includes/libft.h\
 	$(GMATH_PATH)/includes/gmath.h\
 	$(RT_PATH)/includes/rt.h\
+
+$(OBJDIR)/%.o : $(SRCDIR)/object/%.c $(HEADERS)
 
 # build
 all : $(NAME)
