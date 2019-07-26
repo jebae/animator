@@ -1,9 +1,6 @@
 #include "animator.h"
 
-void		cylinder_translate(
-	t_mat4 *mat,
-	char *objects_buf
-)
+void		cylinder_translate(char *objects_buf, t_mat4 *mat)
 {
 	t_cylinder		*cylinder;
 

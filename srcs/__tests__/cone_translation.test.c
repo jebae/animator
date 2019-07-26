@@ -16,19 +16,21 @@ static t_ray_grid_properties	get_ray_grid_props_for_test(t_camera *cam)
 	return (props);
 }
 
-static size_t		get_sphere(char *objects_buf)
+static size_t		get_cone(char *objects_buf)
 {
-	t_new_sphere_args			args_sphere;
+	t_new_cone_args				args_cone;
 	t_object_commons			commons;
 
 	commons.specular_alpha = 50;
 	commons.reflectivity = 0.1f;
 	commons.transparency = 0.0f;
 	commons.ior = 1.5f;
-	commons.color = (t_vec4){{0.9f, 0.6f, 0.1f, 1}};
-	args_sphere.r = 1.0f;
-	args_sphere.c = (t_vec4){{-2.0f, 5.0f, 0.5f, 1.0f}};
-	return (new_sphere(commons, &args_sphere, objects_buf));
+	commons.color = (t_vec4){{0.2f, 0.6f, 0.8f, 1}};
+	args_cone.h = 2.0f;
+	args_cone.theta = M_PI / 6.0f;
+	args_cone.c = (t_vec4){{1.0f, 5.0f, 0.0f, 1.0f}};
+	args_cone.v = (t_vec4){{-1.0f, 0.0f, -1.0f, 1.0f}};
+	return (new_cone(commons, &args_cone, objects_buf));
 }
 
 static size_t		get_distant_light(char *lights_buf)
@@ -43,7 +45,7 @@ static size_t		get_distant_light(char *lights_buf)
 
 static void			write_objects(char *objects_buf)
 {
-	objects_buf += get_sphere(objects_buf);
+	objects_buf += get_cone(objects_buf);
 }
 
 static void			write_lights(char *lights_buf)
@@ -51,7 +53,7 @@ static void			write_lights(char *lights_buf)
 	lights_buf += get_distant_light(lights_buf);
 }
 
-void				test_sphere_translation(int parallel_mode)
+void				test_cone_translation(int parallel_mode)
 {
 	t_test_dispatcher		dispatcher;
 	size_t					buf_size;
@@ -73,7 +75,7 @@ void				test_sphere_translation(int parallel_mode)
 		dispatcher.marker.p_img, settings.window_width);
 
 	settings.num_objects = 1;
-	buf_size = sizeof(t_sphere) +
+	buf_size = sizeof(t_cone) +
 		sizeof(int) * settings.num_objects;
 	settings.objects_buf_size = buf_size;
 	settings.objects_buf = (char *)ft_memalloc(buf_size);
@@ -88,7 +90,6 @@ void				test_sphere_translation(int parallel_mode)
 
 	init_clkit(&clkit, &settings);
 	render_scene(&clkit, &settings);
-
 	mlx_put_image_to_window(
 		dispatcher.marker.p_mlx,
 		dispatcher.marker.p_win,

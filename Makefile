@@ -28,14 +28,17 @@ LIBFT_PATH = ../libft
 
 GMATH_PATH = ../gmath
 
+CLKIT_PATH = ../clkit
+
 RT_PATH = ../rt
 
 # compiler options
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 
 INCLUDES = -I ./$(INCDIR)\
 	-I $(LIBFT_PATH)/includes\
 	-I $(GMATH_PATH)/includes\
+	-I $(CLKIT_PATH)/includes\
 	-I $(RT_PATH)/includes\
 
 # srcs
@@ -44,6 +47,7 @@ SRC_OBJECT = cone.c\
 	sphere.c\
 	cylinder.c\
 	triangle.c\
+	object_translate.c\
 
 # objs
 OBJS = $(addprefix $(OBJDIR)/, $(SRC_OBJECT:.c=.o))
@@ -52,9 +56,14 @@ OBJS = $(addprefix $(OBJDIR)/, $(SRC_OBJECT:.c=.o))
 HEADERS = $(INCDIR)/animator.h\
 	$(LIBFT_PATH)/includes/libft.h\
 	$(GMATH_PATH)/includes/gmath.h\
+	$(CLKIT_PATH)/includes/clkit.h\
 	$(RT_PATH)/includes/rt.h\
+	$(RT_PATH)/includes/rt_struct.h\
+	$(RT_PATH)/includes/rt_args.h\
+	$(RT_PATH)/includes/rt_parallel.h\
 
 $(OBJDIR)/%.o : $(SRCDIR)/object/%.c $(HEADERS)
+	@$(call compile_obj,$<,$@)
 
 # build
 all : $(NAME)

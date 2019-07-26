@@ -1,9 +1,6 @@
 #include "animator.h"
 
-void		triangle_translate(
-	t_mat4 *mat,
-	char *objects_buf
-)
+void		triangle_translate(char *objects_buf, t_mat4 *mat)
 {
 	t_triangle		*triangle;
 

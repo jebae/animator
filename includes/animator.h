@@ -11,14 +11,16 @@
 /*
 ** object
 */
-void		sphere_translate(t_mat4 *mat, char *objects_buf);
+void		object_translate(char *objects_buf, t_mat4 *mat);
 
-void		cylinder_translate(t_mat4 *mat, char *objects_buf);
+void		sphere_translate(char *objects_buf, t_mat4 *mat);
 
-void		cone_translate(t_mat4 *mat, char *objects_buf);
+void		cone_translate(char *objects_buf, t_mat4 *mat);
 
-void		plane_translate(t_mat4 *mat, char *objects_buf);
+void		cylinder_translate(char *objects_buf, t_mat4 *mat);
 
-void		triangle_translate(t_mat4 *mat, char *objects_buf);
+void		plane_translate(char *objects_buf, t_mat4 *mat);
+
+void		triangle_translate(char *objects_buf, t_mat4 *mat);
 
 #endif

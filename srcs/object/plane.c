@@ -1,9 +1,6 @@
 #include "animator.h"
 
-void		plane_translate(
-	t_mat4 *mat,
-	char *objects_buf
-)
+void		plane_translate(char *objects_buf, t_mat4 *mat)
 {
 	t_plane		*plane;
 

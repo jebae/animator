@@ -1,9 +1,6 @@
 #include "animator.h"
 
-void		cone_translate(
-	t_mat4 *mat,
-	char *objects_buf
-)
+void		cone_translate(char *objects_buf, t_mat4 *mat)
 {
 	t_cone		*cone;
 

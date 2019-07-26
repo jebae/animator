@@ -1,9 +1,6 @@
 #include "animator.h"
 
-void		sphere_translate(
-	t_mat4 *mat, // this mat has to be translate * cam_mat
-	char *objects_buf
-)
+void		sphere_translate(char *objects_buf, t_mat4 *mat)
 {
 	t_sphere		*sphere;
 
