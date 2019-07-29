@@ -8,8 +8,8 @@ static t_ray_grid_properties	get_ray_grid_props_for_test(t_camera *cam)
 {
 	t_ray_grid_properties	props;
 
-	cam->focus = (t_vec4){{0.0f, 1.0f, 0.0f, 1.0f}};
-	cam->pos = (t_vec4){{0.0f, 0.0f, 0.0f, 1}};
+	cam->focus = (t_vec4){{0.0f, 5.0f, 0.0f, 1.0f}};
+	cam->pos = (t_vec4){{-1.0f, 5.0f, 10.0f, 1}};
 	cam->roll = 0.0f;
 	cam->zoom = 1.0f;
 	props = get_ray_grid_properties(cam, WIDTH, HEIGHT, M_PI / 2.0f);
@@ -53,7 +53,7 @@ static void			write_lights(char *lights_buf)
 	lights_buf += get_distant_light(lights_buf);
 }
 
-void				test_cone_translation(int parallel_mode)
+void				test_cone(int parallel_mode)
 {
 	t_test_dispatcher		dispatcher;
 	size_t					buf_size;

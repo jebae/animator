@@ -20,5 +20,9 @@ int		key_press(int keycode, void *param)
 		key_w(param);
 	else if (keycode == KEY_S)
 		key_s(param);
+	else if (keycode == KEY_LEFT_SQUARE_BRACKET)
+		key_left_square_bracket(param);
+	else if (keycode == KEY_RIGHT_SQUARE_BRACKET)
+		key_right_square_bracket(param);
 	return (1);
 }

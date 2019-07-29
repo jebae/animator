@@ -51,7 +51,7 @@ static void			write_lights(char *lights_buf)
 	lights_buf += get_distant_light(lights_buf);
 }
 
-void				test_sphere_translation(int parallel_mode)
+void				test_sphere(int parallel_mode)
 {
 	t_test_dispatcher		dispatcher;
 	size_t					buf_size;

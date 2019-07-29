@@ -4,15 +4,17 @@
 # include "animator.h"
 # include "draw.h"
 
-# define KEY_ESC				53
-# define KEY_LEFT				123
-# define KEY_RIGHT				124
-# define KEY_UP					126
-# define KEY_DOWN				125
-# define KEY_A					0
-# define KEY_S					1
-# define KEY_D					2
-# define KEY_W					13
+# define KEY_ESC						53
+# define KEY_LEFT						123
+# define KEY_RIGHT						124
+# define KEY_UP							126
+# define KEY_DOWN						125
+# define KEY_A							0
+# define KEY_S							1
+# define KEY_D							2
+# define KEY_W							13
+# define KEY_LEFT_SQUARE_BRACKET		33
+# define KEY_RIGHT_SQUARE_BRACKET		30
 
 typedef struct      s_test_dispatcher
 {
@@ -60,21 +62,25 @@ void				key_w(void *param);
 
 void				key_s(void *param);
 
+void				key_left_square_bracket(void *param);
+
+void				key_right_square_bracket(void *param);
+
 int					key_press(int keycode, void *param);
 
 /*
 ** tests
 */
-void				test_sphere_translation(int parallel_mode);
+void				test_sphere(int parallel_mode);
 
-void				test_cylinder_translation(int parallel_mode);
+void				test_cylinder(int parallel_mode);
 
-void				test_cone_translation(int parallel_mode);
+void				test_cone(int parallel_mode);
 
-void				test_plane_translation(int parallel_mode);
+void				test_plane(int parallel_mode);
 
-void				test_triangle_translation(int parallel_mode);
+void				test_triangle(int parallel_mode);
 
-void				test_camera_translation(int parallel_mode);
+void				test_camera(int parallel_mode);
 
 #endif

@@ -3,17 +3,15 @@
 void		key_left(void *param)
 {
 	t_test_dispatcher	*dispatcher;
-	t_mat4				m1;
-	t_mat4				m2;
+	t_mat4				mat;
+	t_vec4				v;
 
 	dispatcher = (t_test_dispatcher *)param;
-
-	m1 = world_to_cam_coord_mat(&(dispatcher->cam));
-	m2 = translate_mat(-0.5f, 0.0f, 0.0f);
-	m2 = mat_mul_mat(&m2, &m1);
-	m1 = cam_to_world_coord_mat(&(dispatcher->cam));
-	m2 = mat_mul_mat(&m1, &m2);
-	object_translate(dispatcher->settings->objects_buf, &m2);
+	v = (t_vec4){{-0.5f, 0.0f, 0.0f, 1.0f}};
+	mat = camera_basis_mat(&(dispatcher->cam));
+	v = mat_mul_vec(&mat, &v);
+	mat = translate_mat(v.arr[0], v.arr[1], v.arr[2]);
+	object_translate(dispatcher->settings->objects_buf, &mat);
 	render_scene(dispatcher->clkit, dispatcher->settings);
 	mlx_put_image_to_window(
 		dispatcher->marker.p_mlx,
@@ -24,16 +22,15 @@ void		key_left(void *param)
 void		key_right(void *param)
 {
 	t_test_dispatcher	*dispatcher;
-	t_mat4				m1;
-	t_mat4				m2;
+	t_mat4				mat;
+	t_vec4				v;
 
 	dispatcher = (t_test_dispatcher *)param;
-	m1 = world_to_cam_coord_mat(&(dispatcher->cam));
-	m2 = translate_mat(0.5f, 0.0f, 0.0f);
-	m2 = mat_mul_mat(&m2, &m1);
-	m1 = cam_to_world_coord_mat(&(dispatcher->cam));
-	m2 = mat_mul_mat(&m1, &m2);
-	object_translate(dispatcher->settings->objects_buf, &m2);
+	v = (t_vec4){{0.5f, 0.0f, 0.0f, 1.0f}};
+	mat = camera_basis_mat(&(dispatcher->cam));
+	v = mat_mul_vec(&mat, &v);
+	mat = translate_mat(v.arr[0], v.arr[1], v.arr[2]);
+	object_translate(dispatcher->settings->objects_buf, &mat);
 	render_scene(dispatcher->clkit, dispatcher->settings);
 	mlx_put_image_to_window(
 		dispatcher->marker.p_mlx,
@@ -44,16 +41,15 @@ void		key_right(void *param)
 void		key_up(void *param)
 {
 	t_test_dispatcher	*dispatcher;
-	t_mat4				m1;
-	t_mat4				m2;
+	t_mat4				mat;
+	t_vec4				v;
 
 	dispatcher = (t_test_dispatcher *)param;
-	m1 = world_to_cam_coord_mat(&(dispatcher->cam));
-	m2 = translate_mat(0.0f, -0.5f, 0.0f);
-	m2 = mat_mul_mat(&m2, &m1);
-	m1 = cam_to_world_coord_mat(&(dispatcher->cam));
-	m2 = mat_mul_mat(&m1, &m2);
-	object_translate(dispatcher->settings->objects_buf, &m2);
+	v = (t_vec4){{0.0f, -0.5f, 0.0f, 1.0f}};
+	mat = camera_basis_mat(&(dispatcher->cam));
+	v = mat_mul_vec(&mat, &v);
+	mat = translate_mat(v.arr[0], v.arr[1], v.arr[2]);
+	object_translate(dispatcher->settings->objects_buf, &mat);
 	render_scene(dispatcher->clkit, dispatcher->settings);
 	mlx_put_image_to_window(
 		dispatcher->marker.p_mlx,
@@ -64,16 +60,15 @@ void		key_up(void *param)
 void		key_down(void *param)
 {
 	t_test_dispatcher	*dispatcher;
-	t_mat4				m1;
-	t_mat4				m2;
+	t_mat4				mat;
+	t_vec4				v;
 
 	dispatcher = (t_test_dispatcher *)param;
-	m1 = world_to_cam_coord_mat(&(dispatcher->cam));
-	m2 = translate_mat(0.0f, 0.5f, 0.0f);
-	m2 = mat_mul_mat(&m2, &m1);
-	m1 = cam_to_world_coord_mat(&(dispatcher->cam));
-	m2 = mat_mul_mat(&m1, &m2);
-	object_translate(dispatcher->settings->objects_buf, &m2);
+	v = (t_vec4){{0.0f, 0.5f, 0.0f, 1.0f}};
+	mat = camera_basis_mat(&(dispatcher->cam));
+	v = mat_mul_vec(&mat, &v);
+	mat = translate_mat(v.arr[0], v.arr[1], v.arr[2]);
+	object_translate(dispatcher->settings->objects_buf, &mat);
 	render_scene(dispatcher->clkit, dispatcher->settings);
 	mlx_put_image_to_window(
 		dispatcher->marker.p_mlx,

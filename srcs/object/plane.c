@@ -7,3 +7,15 @@ void		plane_translate(char *objects_buf, t_mat4 *mat)
 	plane = (t_plane *)objects_buf;
 	plane->p = mat_mul_vec(mat, &(plane->p));
 }
+
+void		plane_rotate(char *objects_buf, t_vec4 *n, float theta)
+{
+	t_plane			*plane;
+	t_quaternion	q;
+	t_quaternion	q_i;
+
+	plane = (t_plane *)objects_buf;
+	q = rotate_q(n, theta);
+	q_i = inverse_q(&q);
+	plane->n = rotate(&q, &(plane->n), &q_i);
+}
