@@ -9,6 +9,10 @@
 # define KEY_RIGHT				124
 # define KEY_UP					126
 # define KEY_DOWN				125
+# define KEY_A					0
+# define KEY_S					1
+# define KEY_D					2
+# define KEY_W					13
 
 typedef struct      s_test_dispatcher
 {
@@ -19,16 +23,6 @@ typedef struct      s_test_dispatcher
 	t_global_settings	*settings;
 	t_clkit				*clkit;
 }					t_test_dispatcher;
-
-void				test_sphere_translation(int parallel_mode);
-
-void				test_cylinder_translation(int parallel_mode);
-
-void				test_cone_translation(int parallel_mode);
-
-void				test_plane_translation(int parallel_mode);
-
-void				test_triangle_translation(int parallel_mode);
 
 /*
 ** utils
@@ -51,10 +45,36 @@ void				init_mlx(
 void				key_esc(void *param);
 
 void				key_left(void *param);
+
 void				key_right(void *param);
+
 void				key_up(void *param);
+
 void				key_down(void *param);
 
+void				key_a(void *param);
+
+void				key_d(void *param);
+
+void				key_w(void *param);
+
+void				key_s(void *param);
+
 int					key_press(int keycode, void *param);
+
+/*
+** tests
+*/
+void				test_sphere_translation(int parallel_mode);
+
+void				test_cylinder_translation(int parallel_mode);
+
+void				test_cone_translation(int parallel_mode);
+
+void				test_plane_translation(int parallel_mode);
+
+void				test_triangle_translation(int parallel_mode);
+
+void				test_camera_translation(int parallel_mode);
 
 #endif

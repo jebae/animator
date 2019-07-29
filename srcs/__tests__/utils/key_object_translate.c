@@ -7,10 +7,11 @@ void		key_left(void *param)
 	t_mat4				m2;
 
 	dispatcher = (t_test_dispatcher *)param;
-	m1 = camera_mat(&(dispatcher->cam));
+
+	m1 = world_to_cam_coord_mat(&(dispatcher->cam));
 	m2 = translate_mat(-0.5f, 0.0f, 0.0f);
 	m2 = mat_mul_mat(&m2, &m1);
-	m1 = mat_transpose(&m1);
+	m1 = cam_to_world_coord_mat(&(dispatcher->cam));
 	m2 = mat_mul_mat(&m1, &m2);
 	object_translate(dispatcher->settings->objects_buf, &m2);
 	render_scene(dispatcher->clkit, dispatcher->settings);
@@ -27,10 +28,10 @@ void		key_right(void *param)
 	t_mat4				m2;
 
 	dispatcher = (t_test_dispatcher *)param;
-	m1 = camera_mat(&(dispatcher->cam));
+	m1 = world_to_cam_coord_mat(&(dispatcher->cam));
 	m2 = translate_mat(0.5f, 0.0f, 0.0f);
 	m2 = mat_mul_mat(&m2, &m1);
-	m1 = mat_transpose(&m1);
+	m1 = cam_to_world_coord_mat(&(dispatcher->cam));
 	m2 = mat_mul_mat(&m1, &m2);
 	object_translate(dispatcher->settings->objects_buf, &m2);
 	render_scene(dispatcher->clkit, dispatcher->settings);
@@ -47,10 +48,10 @@ void		key_up(void *param)
 	t_mat4				m2;
 
 	dispatcher = (t_test_dispatcher *)param;
-	m1 = camera_mat(&(dispatcher->cam));
+	m1 = world_to_cam_coord_mat(&(dispatcher->cam));
 	m2 = translate_mat(0.0f, -0.5f, 0.0f);
 	m2 = mat_mul_mat(&m2, &m1);
-	m1 = mat_transpose(&m1);
+	m1 = cam_to_world_coord_mat(&(dispatcher->cam));
 	m2 = mat_mul_mat(&m1, &m2);
 	object_translate(dispatcher->settings->objects_buf, &m2);
 	render_scene(dispatcher->clkit, dispatcher->settings);
@@ -67,10 +68,10 @@ void		key_down(void *param)
 	t_mat4				m2;
 
 	dispatcher = (t_test_dispatcher *)param;
-	m1 = camera_mat(&(dispatcher->cam));
+	m1 = world_to_cam_coord_mat(&(dispatcher->cam));
 	m2 = translate_mat(0.0f, 0.5f, 0.0f);
 	m2 = mat_mul_mat(&m2, &m1);
-	m1 = mat_transpose(&m1);
+	m1 = cam_to_world_coord_mat(&(dispatcher->cam));
 	m2 = mat_mul_mat(&m1, &m2);
 	object_translate(dispatcher->settings->objects_buf, &m2);
 	render_scene(dispatcher->clkit, dispatcher->settings);

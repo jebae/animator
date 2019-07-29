@@ -49,8 +49,11 @@ SRC_OBJECT = cone.c\
 	triangle.c\
 	object_translate.c\
 
+SRC_CAMERA = camera_translation.c\
+
 # objs
 OBJS = $(addprefix $(OBJDIR)/, $(SRC_OBJECT:.c=.o))
+OBJS += $(addprefix $(OBJDIR)/, $(SRC_CAMERA:.c=.o))
 
 # compile objs
 HEADERS = $(INCDIR)/animator.h\
@@ -63,6 +66,8 @@ HEADERS = $(INCDIR)/animator.h\
 	$(RT_PATH)/includes/rt_parallel.h\
 
 $(OBJDIR)/%.o : $(SRCDIR)/object/%.c $(HEADERS)
+	@$(call compile_obj,$<,$@)
+$(OBJDIR)/%.o : $(SRCDIR)/camera/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 # build

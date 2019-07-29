@@ -23,4 +23,11 @@ void		plane_translate(char *objects_buf, t_mat4 *mat);
 
 void		triangle_translate(char *objects_buf, t_mat4 *mat);
 
+void		camera_translate(t_camera *cam, t_mat4 *mat);
+
+/*
+** camera
+*/
+void		camera_translate(t_camera *cam, t_mat4 *mat);
+
 #endif

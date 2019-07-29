@@ -12,5 +12,13 @@ int		key_press(int keycode, void *param)
 		key_up(param);
 	else if (keycode == KEY_DOWN)
 		key_down(param);
+	else if (keycode == KEY_A)
+		key_a(param);
+	else if (keycode == KEY_D)
+		key_d(param);
+	else if (keycode == KEY_W)
+		key_w(param);
+	else if (keycode == KEY_S)
+		key_s(param);
 	return (1);
 }
