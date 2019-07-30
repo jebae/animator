@@ -15,6 +15,12 @@
 # define KEY_W							13
 # define KEY_LEFT_SQUARE_BRACKET		33
 # define KEY_RIGHT_SQUARE_BRACKET		30
+# define KEY_COMMA						43
+# define KEY_POINT						47
+# define KEY_J							38
+# define KEY_L							37
+# define KEY_I							34
+# define KEY_K							40
 
 typedef struct      s_test_dispatcher
 {
@@ -29,6 +35,8 @@ typedef struct      s_test_dispatcher
 /*
 ** utils
 */
+void				event_render(t_test_dispatcher *dispatcher);
+
 char        		*get_img_buffer(void *p_img, int width);
 
 void				init_marker(
@@ -62,9 +70,17 @@ void				key_w(void *param);
 
 void				key_s(void *param);
 
-void				key_left_square_bracket(void *param);
+void				key_comma(void *param);
 
-void				key_right_square_bracket(void *param);
+void				key_point(void *param);
+
+void				key_l(void *param);
+
+void				key_j(void *param);
+
+void				key_i(void *param);
+
+void				key_k(void *param);
 
 int					key_press(int keycode, void *param);
 
@@ -82,5 +98,7 @@ void				test_plane(int parallel_mode);
 void				test_triangle(int parallel_mode);
 
 void				test_camera(int parallel_mode);
+
+void				test_scene1(int parallel_mode);
 
 #endif

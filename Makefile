@@ -51,6 +51,7 @@ SRC_OBJECT = cone.c\
 	object_rotate.c\
 
 SRC_CAMERA = camera_translate.c\
+	camera_rotate.c\
 
 # objs
 OBJS = $(addprefix $(OBJDIR)/, $(SRC_OBJECT:.c=.o))

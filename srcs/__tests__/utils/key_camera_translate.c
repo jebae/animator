@@ -13,11 +13,7 @@ static void		event_camera_translate(t_vec4 *v, t_test_dispatcher *dispatcher)
 		(float)(dispatcher->settings->window_width),
 		(float)(dispatcher->settings->window_height),
 		M_PI / 2.0f);
-	render_scene(dispatcher->clkit, dispatcher->settings);
-	mlx_put_image_to_window(
-		dispatcher->marker.p_mlx,
-		dispatcher->marker.p_win,
-		dispatcher->marker.p_img, 0, 0);
+	event_render(dispatcher);
 }
 
 void			key_a(void *param)
@@ -46,7 +42,7 @@ void		key_w(void *param)
 	t_vec4				v;
 
 	dispatcher = (t_test_dispatcher *)param;
-	v = (t_vec4){{0.0f, -0.5f, 0.0f, 1.0f}};
+	v = (t_vec4){{0.0f, 0.0f, 0.5f, 1.0f}};
 	event_camera_translate(&v, dispatcher);
 }
 
@@ -56,6 +52,6 @@ void		key_s(void *param)
 	t_vec4				v;
 
 	dispatcher = (t_test_dispatcher *)param;
-	v = (t_vec4){{0.0f, 0.5f, 0.0f, 1.0f}};
+	v = (t_vec4){{0.0f, 0.0f, -0.5f, 1.0f}};
 	event_camera_translate(&v, dispatcher);
 }

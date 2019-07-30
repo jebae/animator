@@ -1,7 +1,7 @@
 #include "animator_test.h"
 
-static float		WIDTH = 1600;
-static float		HEIGHT = 1200;
+static float		WIDTH = 1000;
+static float		HEIGHT = 800;
 static t_vec4		i_a = (t_vec4){{0.05f, 0.05f, 0.05f, 1.0f}};
 
 static t_ray_grid_properties	get_ray_grid_props_for_test(t_camera *cam)
@@ -9,7 +9,7 @@ static t_ray_grid_properties	get_ray_grid_props_for_test(t_camera *cam)
 	t_ray_grid_properties	props;
 
 	cam->focus = (t_vec4){{0.0f, 5.0f, 0.0f, 1.0f}};
-	cam->pos = (t_vec4){{-1.0f, 10.0f, 10.0f, 1}};
+	cam->pos = (t_vec4){{0.0f, 0.0f, 0.0f, 1}};
 	cam->roll = 0.0f;
 	cam->zoom = 1.0f;
 	props = get_ray_grid_properties(cam, WIDTH, HEIGHT, M_PI / 2.0f);

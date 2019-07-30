@@ -40,4 +40,8 @@ void		camera_translate(t_camera *cam, t_mat4 *mat);
 */
 void		camera_translate(t_camera *cam, t_mat4 *mat);
 
+void		rotate_camera_pan(t_camera *cam, float theta);
+
+void		rotate_camera_tilt(t_camera *cam, float theta);
+
 #endif
