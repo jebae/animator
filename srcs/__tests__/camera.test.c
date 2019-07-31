@@ -7,11 +7,13 @@ static t_vec4		i_a = (t_vec4){{0.05f, 0.05f, 0.05f, 1.0f}};
 static t_ray_grid_properties	get_ray_grid_props_for_test(t_camera *cam)
 {
 	t_ray_grid_properties	props;
+	t_vec4					focus;
 
-	cam->focus = (t_vec4){{0.0f, 5.0f, 0.0f, 1.0f}};
+	focus = (t_vec4){{0.0f, 5.0f, 0.0f, 1.0f}};
 	cam->pos = (t_vec4){{0.0f, 0.0f, 0.0f, 1}};
 	cam->roll = 0.0f;
 	cam->zoom = 1.0f;
+	set_camera_axis(cam, &focus);
 	props = get_ray_grid_properties(cam, WIDTH, HEIGHT, M_PI / 2.0f);
 	return (props);
 }

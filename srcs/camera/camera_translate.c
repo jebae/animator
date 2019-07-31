@@ -3,5 +3,4 @@
 void		camera_translate(t_camera *cam, t_mat4 *mat)
 {
 	cam->pos = mat_mul_vec(mat, &(cam->pos));
-	cam->focus = mat_mul_vec(mat, &(cam->focus));
 }

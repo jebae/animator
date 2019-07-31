@@ -2,10 +2,8 @@
 
 static void		event_object_rotate(t_test_dispatcher *dispatcher, float theta)
 {
-	t_vec4		n;
-
-	n = camera_z_axis(&(dispatcher->cam));
-	object_rotate(dispatcher->settings->objects_buf, &n, theta);
+	object_rotate(dispatcher->settings->objects_buf,
+		&(dispatcher->settings->cam.z_axis), theta);
 	event_render(dispatcher);
 }
 
