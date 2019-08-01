@@ -63,6 +63,7 @@ HEADERS = $(INCDIR)/animator.h\
 	$(GMATH_PATH)/includes/gmath.h\
 	$(CLKIT_PATH)/includes/clkit.h\
 	$(RT_PATH)/includes/rt.h\
+	$(RT_PATH)/includes/rt_func.h\
 	$(RT_PATH)/includes/rt_struct.h\
 	$(RT_PATH)/includes/rt_args.h\
 	$(RT_PATH)/includes/rt_parallel.h\
